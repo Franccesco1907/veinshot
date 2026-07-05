@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .shot { fill: #14202A; }
+    @media (prefers-color-scheme: dark) {
+      .shot { fill: #E8EDF0; }
+    }
+  </style>
+  <defs>
+    <clipPath id="pill">
+      <rect x="2" y="9" width="28" height="14" rx="7" />
+    </clipPath>
+  </defs>
+  <g clip-path="url(#pill)">
+    <rect x="2" y="9" width="14" height="14" fill="#E0224A" />
+    <rect x="16" y="9" width="14" height="14" class="shot" />
+  </g>
+</svg>

@@ -1,26 +1,90 @@
 @import "tailwindcss";
 
+/*
+ * Veinshot brand palette — "arterial/venous" system.
+ * Arterial crimson is the single bold accent; venous blue stays quiet
+ * in lines and diagrams. Neutrals carry a cold, clinical blue-green bias.
+ * Stage tokens are for dark "lab screen" panels that stay dark in both
+ * themes, so stage colors are fixed rather than theme-aware.
+ */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4f7f6;
+  --foreground: #14202a;
+  --muted: #5a6b76;
+  --line: #d9e1e3;
+  --arterial: #e0224a;
+  --arterial-soft: rgba(224, 34, 74, 0.09);
+  --venous: #3a5a8c;
+  --stage: #0b0f14;
+  --stage-line: #26333e;
+  --stage-dim: #3d4f5e;
+  --stage-dot: #1c2731;
+  --stage-foreground: #e8edf0;
+  --stage-muted: #6b7d89;
+  --stage-pulse: #ff3d63;
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-arterial: var(--arterial);
+  --color-arterial-soft: var(--arterial-soft);
+  --color-venous: var(--venous);
+  --color-stage: var(--stage);
+  --color-stage-line: var(--stage-line);
+  --color-stage-dim: var(--stage-dim);
+  --color-stage-dot: var(--stage-dot);
+  --color-stage-foreground: var(--stage-foreground);
+  --color-stage-muted: var(--stage-muted);
+  --color-stage-pulse: var(--stage-pulse);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0c1013;
+    --foreground: #dee7ec;
+    --muted: #8fa1ac;
+    --line: #243039;
+    --arterial: #ff3d63;
+    --arterial-soft: rgba(255, 61, 99, 0.12);
+    --venous: #6c8fc9;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Dark lab-screen panel with a subtle dot grid, same in both themes. */
+.stage-grid {
+  background-color: var(--stage);
+  background-image: radial-gradient(circle, var(--stage-dot) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+/* Page-load rise, gated so reduced-motion users get static content. */
+@media (prefers-reduced-motion: no-preference) {
+  .animate-rise {
+    animation: rise 0.6s var(--ease-out-strong) both;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
