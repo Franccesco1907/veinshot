@@ -25,7 +25,7 @@ export const services = {
       tag: "Full build",
       title: "Product engineering",
       description:
-        "End-to-end design and build of web products with Next.js, React, and TypeScript. Senior hands from architecture to deploy — no handoffs, no juniors learning on your dime.",
+        "End-to-end design and build of web products, whatever the right stack turns out to be. Senior hands from architecture to deploy — no handoffs, no juniors learning on your dime.",
     },
     {
       tag: "Sprint",
