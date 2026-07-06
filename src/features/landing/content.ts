@@ -48,6 +48,55 @@ export const services = {
   ],
 } as const;
 
+export const process = {
+  eyebrow: "Process",
+  headline: {
+    lead: "From intake to",
+    accent: "discharge.",
+  },
+  subline:
+    "Four steps, no mystery. You know where you stand at every point of the treatment.",
+  steps: [
+    {
+      number: "01",
+      name: "Intake",
+      description:
+        "You describe the problem. We ask the uncomfortable questions early — goals, constraints, budget — so nothing surprises anyone later.",
+    },
+    {
+      number: "02",
+      name: "Prescription",
+      description:
+        "You get a written scope: what we'll build, how long it takes, and what it costs. Fixed, not fuzzy. You approve before anything starts.",
+    },
+    {
+      number: "03",
+      name: "Treatment",
+      description:
+        "We build in short cycles with working software every week. You see progress you can click, not status reports.",
+    },
+    {
+      number: "04",
+      name: "Discharge",
+      description:
+        "You get the keys: code, docs, and a clean handoff. No lock-in, no retainer trap — and we're here if you need us again.",
+    },
+  ],
+} as const;
+
+export const notFound = {
+  eyebrow: "404",
+  headline: {
+    lead: "Flat",
+    accent: "line.",
+  },
+  subline: "This page doesn't exist — or it didn't make the scope.",
+  cta: {
+    label: "Back to the living",
+    href: "/",
+  },
+} as const;
+
 export const contact = {
   eyebrow: "Contact",
   headline: {
