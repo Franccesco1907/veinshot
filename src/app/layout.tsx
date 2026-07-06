@@ -31,6 +31,17 @@ export const metadata: Metadata = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Veinshot",
+  url: "https://veinshot.com",
+  logo: "https://veinshot.com/opengraph-image.png",
+  email: "hello@veinshot.com",
+  description:
+    "Software studio that ships solutions straight to the vein: precise scope, senior execution, zero bloat.",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,7 +52,13 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {children}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+      </body>
     </html>
   );
 }

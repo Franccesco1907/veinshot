@@ -1,4 +1,5 @@
 import { Contact } from "@/features/landing/components/Contact";
+import { Faq } from "@/features/landing/components/Faq";
 import { Hero } from "@/features/landing/components/Hero";
 import { Process } from "@/features/landing/components/Process";
 import { PulseDivider } from "@/features/landing/components/PulseDivider";
@@ -17,6 +18,7 @@ export default function Home() {
           <PulseDivider />
           <Services />
           <Process />
+          <Faq />
           <Contact />
         </ScrollVein>
       </main>

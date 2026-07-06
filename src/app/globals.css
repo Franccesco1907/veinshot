@@ -12,8 +12,10 @@
   --foreground: #14202a;
   --muted: #5a6b76;
   --line: #d9e1e3;
-  --arterial: #e0224a;
-  --arterial-soft: rgba(224, 34, 74, 0.09);
+  /* #d11d44 (not the brand's #e0224a): the extra darkness buys WCAG AA
+     contrast for 12px arterial text on the light background (4.9:1). */
+  --arterial: #d11d44;
+  --arterial-soft: rgba(209, 29, 68, 0.09);
   --venous: #3a5a8c;
   --stage: #0b0f14;
   --stage-line: #26333e;
@@ -62,6 +64,17 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* One visible, branded keyboard-focus ring everywhere. */
+:focus-visible {
+  outline: 2px solid var(--arterial);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--arterial);
+  color: #ffffff;
 }
 
 /* Dark lab-screen panel with a subtle dot grid, same in both themes. */

@@ -84,6 +84,48 @@ export const process = {
   ],
 } as const;
 
+export const faq = {
+  eyebrow: "FAQ",
+  headline: {
+    lead: "Straight",
+    accent: "answers.",
+  },
+  subline:
+    "The things prospects actually want to know, answered the way we'd answer them on a call.",
+  items: [
+    {
+      question: "How do you price projects?",
+      answer:
+        "Fixed price, tied to a written scope — you know the cost before anything starts. We don't publish rates because no two treatments are the same: describe your problem and you'll get a number, not a range.",
+    },
+    {
+      question: "What if the scope changes mid-project?",
+      answer:
+        "The prescription is fixed: what we agreed is what we deliver, at the price we agreed. New ideas are welcome — they get scoped and priced as additions, never absorbed as silent creep. That discipline is what keeps deadlines honest.",
+    },
+    {
+      question: "Do you work with existing teams?",
+      answer:
+        "Both ways. We can own the build end to end, or plug senior hands into your team — your repo, your process, our execution.",
+    },
+    {
+      question: "What happens after delivery?",
+      answer:
+        "Every build ships with one month of included support: if something we wrote breaks, we fix it. Ongoing maintenance beyond that is available as a separate engagement.",
+    },
+    {
+      question: "Where do you work from?",
+      answer:
+        "100% remote, in English and Spanish. Async-first, with real-time overlap for the conversations that matter.",
+    },
+    {
+      question: "Is there a minimum project size?",
+      answer:
+        "No. If the problem is real, it deserves a precise dose — some of the best engagements start small.",
+    },
+  ],
+} as const;
+
 export const notFound = {
   eyebrow: "404",
   headline: {

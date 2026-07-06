@@ -26,9 +26,9 @@ export function Process() {
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.45, delay: index * 0.07, ease: [0.23, 1, 0.32, 1] }}
           >
-            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
+            <h3 className="font-mono text-[11px] uppercase tracking-[0.14em] text-muted">
               {step.number} · {step.name}
-            </p>
+            </h3>
             <p className="mt-3 text-sm leading-relaxed text-muted">{step.description}</p>
           </motion.li>
         ))}
