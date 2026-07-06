@@ -17,7 +17,7 @@ export function SyringeLogomark({ className }: { className?: string }) {
       </defs>
       {/* dose + ink blocks, clipped to the barrel's rounded corners */}
       <g clipPath={`url(#${barrelClipId})`}>
-        <rect x="26" y="22" width="66" height="36" className="fill-arterial" />
+        <rect x="26" y="22" width="66" height="36" className="logomark-dose fill-arterial" />
         <rect x="92" y="22" width="66" height="36" className="fill-stage" />
       </g>
       {/* barrel */}
@@ -32,8 +32,10 @@ export function SyringeLogomark({ className }: { className?: string }) {
         strokeWidth="3"
       />
       {/* plunger */}
-      <line x1="13" y1="30" x2="13" y2="50" className="stroke-foreground" strokeWidth="3" strokeLinecap="round" />
-      <line x1="13" y1="40" x2="26" y2="40" className="stroke-foreground" strokeWidth="3" strokeLinecap="round" />
+      <g className="logomark-plunger">
+        <line x1="13" y1="30" x2="13" y2="50" className="stroke-foreground" strokeWidth="3" strokeLinecap="round" />
+        <line x1="13" y1="40" x2="26" y2="40" className="stroke-foreground" strokeWidth="3" strokeLinecap="round" />
+      </g>
       {/* needle */}
       <line x1="158" y1="40" x2="180" y2="40" className="stroke-foreground" strokeWidth="3" strokeLinecap="round" />
       {/* y=40 seats the lowercase x-height on the barrel's optical center; the

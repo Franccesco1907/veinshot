@@ -78,6 +78,49 @@ body {
   }
 }
 
+/* Logomark micro-interaction: the plunger presses in and the dose compresses.
+   Plays once on load; on pointer devices it also responds to hover. */
+@media (prefers-reduced-motion: no-preference) {
+  .logomark-plunger {
+    transition: transform 0.2s var(--ease-out-strong);
+    animation: plunge 0.7s var(--ease-out-strong) 0.5s;
+  }
+  .logomark-dose {
+    transform-box: fill-box;
+    transform-origin: 100% 50%;
+    transition: transform 0.2s var(--ease-out-strong);
+    animation: dose-squeeze 0.7s var(--ease-out-strong) 0.5s;
+  }
+  @media (hover: hover) and (pointer: fine) {
+    a:hover .logomark-plunger {
+      transform: translateX(5px);
+    }
+    a:hover .logomark-dose {
+      transform: scaleX(0.88);
+    }
+  }
+}
+
+@keyframes plunge {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes dose-squeeze {
+  0%,
+  100% {
+    transform: scaleX(1);
+  }
+  40% {
+    transform: scaleX(0.88);
+  }
+}
+
 @keyframes rise {
   from {
     opacity: 0;
