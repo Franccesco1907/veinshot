@@ -1,15 +1,16 @@
 import { useId } from "react";
 
-export function SyringeLogomark({ className }: { className?: string }) {
+export function SyringeLogomark({
+  className,
+  ariaLabel = "Veinshot: the wordmark inside a syringe barrel",
+}: {
+  className?: string;
+  ariaLabel?: string;
+}) {
   const barrelClipId = useId();
 
   return (
-    <svg
-      viewBox="0 0 196 80"
-      className={className}
-      role="img"
-      aria-label="Veinshot: the wordmark inside a syringe barrel"
-    >
+    <svg viewBox="0 0 196 80" className={className} role="img" aria-label={ariaLabel}>
       <defs>
         <clipPath id={barrelClipId}>
           <rect x="26" y="22" width="132" height="36" rx="6" />

@@ -7,6 +7,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
+      alternates: {
+        languages: {
+          es: "https://veinshot.com/es",
+        },
+      },
+    },
+    {
+      url: "https://veinshot.com/es",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 1,
+      alternates: {
+        languages: {
+          en: "https://veinshot.com",
+        },
+      },
     },
   ];
 }

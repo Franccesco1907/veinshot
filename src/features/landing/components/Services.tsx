@@ -2,22 +2,22 @@
 
 import { motion, useReducedMotion } from "motion/react";
 
-import { services } from "../content";
+import type { LandingContent } from "../types";
 
-export function Services() {
+export function Services({ content }: { content: LandingContent["services"] }) {
   const reduceMotion = useReducedMotion();
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-24">
       <p className="font-mono text-xs uppercase tracking-[0.16em] text-arterial">
-        {services.eyebrow}
+        {content.eyebrow}
       </p>
       <h2 className="mt-4 max-w-[16ch] text-balance text-3xl font-extrabold tracking-tighter sm:text-5xl">
-        {services.headline.lead} <span className="text-arterial">{services.headline.accent}</span>
+        {content.headline.lead} <span className="text-arterial">{content.headline.accent}</span>
       </h2>
-      <p className="mt-5 max-w-[52ch] text-pretty text-base text-muted">{services.subline}</p>
+      <p className="mt-5 max-w-[52ch] text-pretty text-base text-muted">{content.subline}</p>
       <div className="mt-12 grid gap-4 sm:grid-cols-2">
-        {services.items.map((item, index) => (
+        {content.items.map((item, index) => (
           <motion.article
             key={item.tag}
             className="rounded-xl border border-line p-6 transition-colors duration-200 ease-out hover:border-venous"

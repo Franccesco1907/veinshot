@@ -83,17 +83,12 @@ const TOOL_ICONS = [
   },
 ] as const;
 
-export function VeinCircuit() {
+export function VeinCircuit({ ariaLabel }: { ariaLabel: string }) {
   const reduceMotion = useReducedMotion();
 
   return (
     <div className="stage-grid relative overflow-hidden rounded-xl border border-stage-line">
-      <svg
-        viewBox="0 0 800 320"
-        className="block w-full"
-        role="img"
-        aria-label="A circuit-shaped vein carries tool icons into a wireframe product, lighting it up section by section"
-      >
+      <svg viewBox="0 0 800 320" className="block w-full" role="img" aria-label={ariaLabel}>
         {/* Motion track for the travelling glyphs (never painted). */}
         <path id="vein-flow" d={VEIN_PATH} fill="none" stroke="none" />
 

@@ -2,22 +2,22 @@
 
 import { motion, useReducedMotion } from "motion/react";
 
-import { process } from "../content";
+import type { LandingContent } from "../types";
 
-export function Process() {
+export function Process({ content }: { content: LandingContent["process"] }) {
   const reduceMotion = useReducedMotion();
 
   return (
     <section className="mx-auto w-full max-w-5xl px-6 py-24">
       <p className="font-mono text-xs uppercase tracking-[0.16em] text-arterial">
-        {process.eyebrow}
+        {content.eyebrow}
       </p>
       <h2 className="mt-4 max-w-[16ch] text-balance text-3xl font-extrabold tracking-tighter sm:text-5xl">
-        {process.headline.lead} <span className="text-arterial">{process.headline.accent}</span>
+        {content.headline.lead} <span className="text-arterial">{content.headline.accent}</span>
       </h2>
-      <p className="mt-5 max-w-[52ch] text-pretty text-base text-muted">{process.subline}</p>
+      <p className="mt-5 max-w-[52ch] text-pretty text-base text-muted">{content.subline}</p>
       <ol className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {process.steps.map((step, index) => (
+        {content.steps.map((step, index) => (
           <motion.li
             key={step.number}
             className="border-t-2 border-line pt-5"
