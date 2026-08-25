@@ -4,7 +4,7 @@ import type { LandingContent, Locale } from "../types";
 import { SyringeLogomark } from "./SyringeLogomark";
 
 const localeLinks: { locale: Locale; label: string; href: string }[] = [
-  { locale: "en", label: "EN", href: "/" },
+  { locale: "en", label: "EN", href: "/en" },
   { locale: "es", label: "ES", href: "/es" },
 ];
 
@@ -31,6 +31,7 @@ export function SiteHeader({
               {index > 0 && <span className="text-line">/</span>}
               <Link
                 href={link.href}
+                prefetch={false}
                 aria-current={locale === link.locale ? "page" : undefined}
                 className={
                   locale === link.locale
