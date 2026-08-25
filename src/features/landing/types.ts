@@ -1,4 +1,4 @@
-export type Locale = "en" | "es";
+export type { Locale } from "@/features/locale-routing/types";
 
 export interface Headline {
   lead: string;
