@@ -1,59 +1,21 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Veinshot
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+Next.js 16 App Router, React 19, strict TypeScript, Tailwind CSS 4, Motion and npm. Read the relevant bundled guide in `node_modules/next/dist/docs/` before changing Next.js behavior; this version has breaking changes.
 
-# Veinshot — Agency Site
+## Workflow
 
-Landing page for Veinshot, a software studio. Brand promise: solutions straight to the vein — precise scope, senior execution, zero bloat.
+- Install with `npm ci`; run `npm run dev` locally.
+- Run `npm run verify` (typecheck, lint, Vitest, build). Individual scripts are in package.json.
+- Keep routes thin and features under `src/features`. Default to Server Components; client components are for interactivity or Motion.
+- Localized UI copy belongs in `src/features/landing/content/en.ts` and `es.ts`; identifiers and comments default to English.
+- Named imports only. Avoid manual useMemo/useCallback. Use cn() only for conditional classes.
+- Conventional commits; no AI attribution.
 
-## Stack
+## Brand and motion
 
-- Next.js 16 (App Router) · React 19 · TypeScript strict · Tailwind CSS 4 · Motion (`motion/react`)
-- Package manager: npm. Fonts: Geist Sans / Geist Mono via `next/font`.
-
-## Commands
-
-- `npm run dev` — local dev server
-- `npm run build` — production build
-- `npm run lint` — ESLint
-- `npx tsc --noEmit` — typecheck
-- Vitest is pending: add it (mirroring the portfolio repo's `verify` script) when the first non-trivial logic lands.
-
-## Architecture
-
-- Feature-based (screaming architecture): `src/features/<feature>/{components,content.ts,types.ts}`.
-- `src/app/` routes stay thin: pages compose feature components; no business logic in routes.
-- Server Components by default; add `"use client"` only for interactivity or Motion.
-- UI copy lives in `content.ts` files, never inline in components.
-
-## Design system
-
-Tokens live in `src/app/globals.css` under `@theme`. Never hardcode hex or `var()` inside `className` — use token classes (`bg-arterial`, `stroke-venous`, `text-stage-muted`, ...).
-
-| Token group | Role |
-| --- | --- |
-| `arterial` | The single bold accent: CTAs, pulse, dose |
-| `venous` | Quiet secondary: lines, diagrams, nodes |
-| `background` / `foreground` / `muted` / `line` | Cold clinical neutrals (blue-green bias), theme-aware |
-| `stage-*` | Dark "lab screen" panels; stay dark in both themes |
-
-Typography: Geist Sans for display (extrabold, tight tracking) and body; Geist Mono for labels (uppercase, letter-spaced, 11–12px) — specimen-tag style.
-
-### Art direction rules (non-negotiable)
-
-1. Flat clinical geometry. No realism, gloss, bevels, or anatomy (skin, arms, realistic needles). The flatness is what keeps the injection metaphor out of drug-imagery territory.
-2. Arterial is the only bold accent. One bold moment per view; everything around it stays quiet.
-3. Third-party logos or product names (Claude, AWS, GPT, ...) never appear inside brand marks or brand animations — only in neutral, static stack rows.
-4. Motion is orchestrated, not scattered: one page-load sequence per view. UI micro-interactions under 300ms with strong ease-out curves. `prefers-reduced-motion` is always honored (reduce movement, keep opacity cues).
-5. No stock illustrations, no animated gradient backgrounds, no copy-pasted marketplace hero sections. The hero is the brand.
-
-## Code conventions
-
-- Named imports only; no `import React`.
-- No manual `useMemo` / `useCallback` — React Compiler era.
-- `cn()` only for conditional classes; static class lists go straight in `className`.
-- Only animate `transform` and `opacity` where possible; prefer CSS animations for predetermined sequences, Motion for dynamic/interruptible ones.
-- All UI copy, comments, and identifiers in English.
-- Conventional commits. No AI attribution in commits.
+- Use tokens from `src/app/globals.css`, not hardcoded hex or var() in className. Arterial is the sole bold accent; venous is secondary; stage panels remain dark in both themes.
+- Geist Sans serves display/body; Geist Mono serves small uppercase labels.
+- Keep flat clinical geometry: no realism, gloss, bevels or anatomy. No stock illustrations, animated gradient backgrounds or marketplace hero copies.
+- Third-party logos/names belong only in neutral static stack rows, never brand marks or animations.
+- One orchestrated page-load sequence per view; micro-interactions under 300ms with strong ease-out. Honor reduced motion, retaining opacity cues.
+- Prefer transform/opacity; CSS for predetermined sequences and Motion for dynamic/interruptible ones.
